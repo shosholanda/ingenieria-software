@@ -1,4 +1,4 @@
-#!/home/valelanda/Documentos/LoginProject/ambiente/bin/python3
+#!/home/shosholanda/Escritorio/inge/ingenieria-software/ambiente/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
