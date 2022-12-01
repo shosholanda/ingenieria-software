@@ -3,7 +3,8 @@ import functools
 from flask import Blueprint, flash, g, redirect, render_template, request, session, url_for
 from werkzeug.security import check_password_hash, generate_password_hash #This is only if security is enabled.
 from alchemyClasses.usuario import Usuario
-from models.model_usuarios import obten_usuario
+from models.model_usuarios import obten_usuario, valida_usuario
+import hashlib
 
 loginBlueprint = Blueprint('login', __name__, url_prefix='/login')
 
@@ -12,12 +13,13 @@ def login():
     if request.method == 'POST':
         nombre = request.form['username']
         passwd = request.form['password']
+        passwd = hashlib.sha256(passwd.encode('utf-8')).hexdigest()
         mail = request.form['email']
         usuario = Usuario(mail, nombre, passwd)
-        if obten_usuario(mail) != None: #El usuario existe.
+        if valida_usuario(mail, passwd, nombre) != None: #El usuario existe.
             #return render_template("success.html")
             session.clear()
-            session['user_id'] = usuario.nombre
+            session['user_id'] = nombre
             g.user = usuario.nombre
             return redirect(url_for("login.success"))
         else:
