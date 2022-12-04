@@ -25,15 +25,15 @@ def login():
         else:
             return redirect(url_for("login.failure"))
     else: #Estamos haciendo un wget localhost:5000/login/
-        return render_template('login.html')
+        return render_template('auth/login.html')
 
 @loginBlueprint.route('/success', methods=['GET'])
 def success():
     if session.get('user_id') != None:
-        return render_template("success.html")
+        return render_template("auth/success.html")
     flash("ERROR: Cookie de sesion vacia")
     return redirect(url_for('login.login'))
 
 @loginBlueprint.route("/failure", methods=["GET"])
 def failure():
-    return render_template("failure.html")
+    return render_template("auth/failure.html")

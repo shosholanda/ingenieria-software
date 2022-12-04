@@ -1,9 +1,10 @@
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, render_template
 from alchemyClasses.usuario import db
 from controllers.auth import bp
 from controllers.login import loginBlueprint
 from controllers.logout import logoutBlueprint
 from controllers.reservations import view_reservations
+import templates
 
 app = Flask(__name__, instance_relative_config=True)
 app.register_blueprint(bp)
@@ -18,7 +19,7 @@ db.init_app(app)
 
 @app.route('/', methods=['GET','POST'])
 def hello_world():
-    return redirect(url_for('login.login'))
+    return render_template('homeland.html')
 
 if __name__ == '__main__':
     db.create_all()
