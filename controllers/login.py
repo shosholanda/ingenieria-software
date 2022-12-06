@@ -20,6 +20,7 @@ def login():
             #return render_template("success.html")
             session.clear()
             session['user_id'] = nombre
+            session['mail'] = mail
             g.user = usuario.nombre
             return redirect(url_for("login.success"))
         else:
