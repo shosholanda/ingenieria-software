@@ -53,7 +53,7 @@ CREATE TABLE `hostal` (
   `estado` varchar(45) NOT NULL,
   `idactividad` int NOT NULL,
   PRIMARY KEY (`idhostal`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +62,7 @@ CREATE TABLE `hostal` (
 
 LOCK TABLES `hostal` WRITE;
 /*!40000 ALTER TABLE `hostal` DISABLE KEYS */;
-INSERT INTO `hostal` VALUES (1,'Cajún','Veracruz',5),(2,'Habanero','Guadalajara',7);
+INSERT INTO `hostal` VALUES (1,'Cajún','Veracruz',5),(2,'Habanero','Guadalajara',7),(3,'Búfalo','Sonora',6);
 /*!40000 ALTER TABLE `hostal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -80,11 +80,11 @@ CREATE TABLE `reservacion` (
   `numero_personas` int NOT NULL,
   `fecha_llegada` date NOT NULL,
   `fecha_salida` date NOT NULL,
-  `tipo_reservacion` int NOT NULL,
+  `hostal` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idreservacion`),
   KEY `Correo_idx` (`correo`),
   KEY `IDHostal_idx` (`idhostal`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,7 +93,7 @@ CREATE TABLE `reservacion` (
 
 LOCK TABLES `reservacion` WRITE;
 /*!40000 ALTER TABLE `reservacion` DISABLE KEYS */;
-INSERT INTO `reservacion` VALUES (1,'alberto@check.in.mx',1,5,'2017-06-15','2020-09-10',1),(2,'davidshiro.strom@gmail.com',1,6,'2022-11-28','2022-12-28',1),(3,'davidshiro.strom@gmail.com',1,4,'2022-11-28','2022-12-28',1),(4,'davidshiro.strom@gmail.com',1,4,'2022-11-28','2022-12-28',1),(5,'davidshiro.strom@gmail.com',1,2,'2022-11-28','2022-12-28',1),(6,'alberto@check.in.mx',1,22,'2022-11-27','2022-12-04',1),(7,'davidshiro.strom@gmail.com',1,19,'2022-12-20','2022-12-28',1);
+INSERT INTO `reservacion` VALUES (1,'alberto@check.in.mx',1,5,'2017-06-15','2020-09-10','1'),(2,'davidshiro.strom@gmail.com',1,6,'2022-11-28','2022-12-28','1'),(3,'davidshiro.strom@gmail.com',1,4,'2022-11-28','2022-12-28','1'),(4,'davidshiro.strom@gmail.com',1,4,'2022-11-28','2022-12-28','1'),(5,'davidshiro.strom@gmail.com',1,2,'2022-11-28','2022-12-28','1'),(6,'alberto@check.in.mx',1,22,'2022-11-27','2022-12-04','1'),(7,'davidshiro.strom@gmail.com',1,19,'2022-12-20','2022-12-28','1'),(8,'alberto@check.in.mx',1,10,'2022-12-05','2022-12-12','1'),(9,'admin@check.in.mx',1,0,'2022-12-01','2022-12-07','1'),(10,'admin@check.in.mx',2,4,'2022-11-27','2022-11-28','1'),(11,'admin@check.in.mx',1,6,'2022-12-29','2022-12-29','Cajún'),(12,'admin@check.in.mx',3,3,'2022-11-28','2022-12-05','Búfalo');
 /*!40000 ALTER TABLE `reservacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,5 +137,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-05 15:23:42
--- contraseñas: Admin=0, David Silva=david Alberto Reyes=alberto 
+-- Dump completed on 2022-12-07 12:56:23
