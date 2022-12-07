@@ -24,3 +24,6 @@ class Reservacion(db.Model):
         self.final = final
         self.tipo_reservacion = tipo_reservacion
 
+
+    def __str__(self):
+        return f"Hostal:    {self.idhostal}\nNum. Personas:  {self.num_personas}\nFecha inicio:   {self.inicio}\nFinal:    {self.final}"

@@ -4,6 +4,7 @@ from models.model_reservaciones import obtener_reservacion
 from models.model_reservaciones import obtener_reservaciones
 from models.model_usuarios import *
 from alchemyClasses.reservacion import Reservacion
+from controllers.login import login_required
 
 view_reservations = Blueprint('reservacion', __name__, url_prefix='/reservacion')
 
@@ -13,6 +14,7 @@ Aquí se reciben los datos de entrada, se hacen las validaciones y se manda llam
 
 #localhost:5000/reservs/
 @view_reservations.route("/", methods=['GET', 'POST'])
+@login_required
 def reservations_main_page():
     #Codigo python.
     if request.method == 'POST':
@@ -29,6 +31,7 @@ def reservations_main_page():
 
 #Página de creacion de model_reservaciones
 @view_reservations.route("/crear", methods=['GET', 'POST'])
+@login_required
 def crear_reservacion():
     if request.method == 'POST':
         error = None
@@ -45,7 +48,8 @@ def crear_reservacion():
                 num_personas = int(num_personas)
             except:
                 error = 'Ingrese un número válido'""
-                return f"<h1> {error} </h1>"
+                flash(error)
+                return redirect(url_for('reservacion.crear'))
             resv = Reservacion(session['mail'], hostal, num_personas, inicio, fin, 1)
             create(resv)
             #pasó las validaciones
@@ -61,15 +65,17 @@ def crear_reservacion():
     return render_template("reservacion/reservations.html")
 
 @view_reservations.route("/consultar", methods=['GET'])
+@login_required
 def consultar_reservacion():
     resultados = obtener_reservacion(session['mail'])
-    print(resultados)
+    print(str(resultados))
     if not resultados:
         return "<p>No se encontraron reservaciones para este usuario</p>"
-    session['reservations'] = resultados
-    return render_template("reservacion/show-reservations.html")
+    #session['reservations'] = resultados
+    return render_template("reservacion/show-reservations.html", consulta=resultados)
 
 @view_reservations.route("/consultar", methods=['GET'])
+@login_required
 def consultar_reservaciones():
     resultados = obtener_reservaciones(session['mail'])
     print(type(resultados))
@@ -77,7 +83,5 @@ def consultar_reservaciones():
     if not resultados:
         return "<p>No se encontraron reservaciones para este usuario</p>"
     return render_template("reservacion/show-reservations.html")
-
-
 
 

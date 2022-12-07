@@ -38,3 +38,22 @@ def success():
 @loginBlueprint.route("/failure", methods=["GET"])
 def failure():
     return render_template("auth/failure.html")
+
+
+@loginBlueprint.before_app_request
+def load_logged_in_user():
+    user_id = session.get('mail')
+    print(user_id)
+    if user_id is None:
+        g.user = None
+    else:
+        g.user = Usuario.query.get_or_404(user_id)
+
+def login_required(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if g.user is None:
+            return redirect(url_for('login.login'))
+        return view(**kwargs)
+    return wrapped_view
+
