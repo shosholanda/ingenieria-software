@@ -1,11 +1,16 @@
 <!doctype html>
 <title>Reservations</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<nav>
-  <h1></h1>
-  <ul>
-    {% if  session.get('reservation') != None %}
-      <li>Reservation value: <span>{{ session.get('reservation') }}</span>
-    {% endif %}
-  </ul>
-</nav>
+<body>
+  <h1>Reservaciones registradas:</h1>
+  {% for reservacion in consulta %}
+      <h5>{{ reservacion.hostal }}</h5>
+      <p> Numero de personas:{{ reservacion.num_personas }}</p>
+      <p> Fecha inicio:{{ reservacion.inicio }}</p>
+      <p> Fecha salida:{{ reservacion.final}}</p>
+  {% endfor %}
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+
+</body>

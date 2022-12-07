@@ -11,15 +11,15 @@ loginBlueprint = Blueprint('login', __name__, url_prefix='/login')
 @loginBlueprint.route('/', methods=['GET','POST'])
 def login():
     if request.method == 'POST':
-        nombre = request.form['username']
+        #nombre = request.form['username']
         passwd = request.form['password']
         passwd = hashlib.sha256(passwd.encode('utf-8')).hexdigest()
         mail = request.form['email']
-        usuario = Usuario(mail, nombre, passwd)
-        if valida_usuario(mail, passwd, nombre) != None: #El usuario existe.
+        usuario = obten_usuario(mail)
+        if valida_usuario(mail, passwd) != None: #El usuario existe.
             #return render_template("success.html")
             session.clear()
-            session['user_id'] = nombre
+            session['user_id'] = usuario.nombre
             session['mail'] = mail
             g.user = usuario.nombre
             return redirect(url_for("login.success"))
@@ -43,7 +43,6 @@ def failure():
 @loginBlueprint.before_app_request
 def load_logged_in_user():
     user_id = session.get('mail')
-    print(user_id)
     if user_id is None:
         g.user = None
     else:
