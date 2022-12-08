@@ -6,6 +6,7 @@ from models.model_usuarios import *
 from alchemyClasses.reservacion import Reservacion
 from controllers.login import login_required
 from models.model_hostales import obtener_hostal
+from models.model_hostales import obtener_hostales
 
 import itertools
 
@@ -36,6 +37,7 @@ def reservations_main_page():
 @view_reservations.route("/crear", methods=['GET', 'POST'])
 @login_required
 def crear_reservacion():
+    hostales_disponibles = obtener_hostales()
     if request.method == 'POST':
         error = None
         usr = obten_usuario(session['mail'])
@@ -66,7 +68,7 @@ def crear_reservacion():
         else:
             error = "El correo no está en la base de datos y no puede hacer una reservacion"
             flash(error)
-    return render_template("reservacion/reservations.html")
+    return render_template("reservacion/reservations.html", hostales = hostales_disponibles)
 
 
 @view_reservations.route("/consultar", methods=['GET'])

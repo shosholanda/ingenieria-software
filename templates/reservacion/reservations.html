@@ -8,14 +8,11 @@
     <h2>Ingresa los siguientes campos para poder crear una reservacion</h2>
     <form action="" method="POST">
         <p>Hotel</p>
-            <input type="radio" id="cajun" name="hoteles" value="1">
-            <label for="cajun">Cajún</label><br>
+            {% for hostal in hostales %}
+                <input type="radio" id="{{ hostal.nombre}}" name="hoteles" value="{{ hostal.idhostal}}">
+                <label for="{{ hostal.nombre}}"> {{hostal.nombre}}</label><br>
 
-            <input type="radio" id="valentina" name="hoteles" value="2">
-
-            <label for="valentina">Valentina</label><br>
-            <input type="radio" id="bufalo" name="hoteles" value="3">
-            <label for="bufalo">Búffalo</label>
+            {% endfor %}
 
         <br>
         <label for="num_personas">Numero de personas</label>
