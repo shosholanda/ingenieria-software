@@ -9,18 +9,21 @@ class Reservacion(db.Model):
     num_personas = db.Column("numero_personas", db.Integer)
     inicio = db.Column("fecha_llegada", db.Date)
     final = db.Column("fecha_salida", db.Date)
-    tipo_reservacion = db.Column("tipo_reservacion", db.Integer)
+    hostal = db.Column("hostal", db.String(50))
 
     def __init__(self,correo,
                         idhostal,
                         num_personas,
                         inicio,
                         final,
-                        tipo_reservacion):
+                        hostal):
         self.correo = correo
         self.idhostal = idhostal
         self.num_personas = num_personas
         self.inicio = inicio
         self.final = final
-        self.tipo_reservacion = tipo_reservacion
+        self.hostal = hostal
 
+
+    def __repr__(self):
+        return f"Hostal:    {self.idhostal}\nNum. Personas:  {self.num_personas}\nFecha inicio:   {self.inicio}\nFinal:    {self.final}"

@@ -12,9 +12,7 @@
   <header>
     <li>Crear reservacion<a href="{{ url_for('reservacion.crear_reservacion') }}">Crear reservacion</a>
     <br>
-    <li>Consultar todas las reservaciones <a href="{{ url_for('reservacion.consultar_reservacion') }}">Consultar reservacion</a>
-    <br>
-    <li>Consultar 1 reservacion<a href="{{ url_for('reservacion.consultar_reservaciones') }}">Consultar reservacion</a>
+    <li>Consultar todas las reservaciones<a href="{{ url_for('reservacion.consultar_reservaciones') }}">Consultar reservacion</a>
   </header>
   {% for message in get_flashed_messages() %}
     <div class="flash">{{ message }}</div>

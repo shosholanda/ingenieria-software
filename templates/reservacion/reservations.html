@@ -8,13 +8,13 @@
     <h2>Ingresa los siguientes campos para poder crear una reservacion</h2>
     <form action="" method="POST">
         <p>Hotel</p>
-            <input type="radio" id="cajun" name="hoteles" value="{{ request.form.cajun }}">
+            <input type="radio" id="cajun" name="hoteles" value="1">
             <label for="cajun">Cajún</label><br>
 
-            <input type="radio" id="valentina" name="hoteles" value="{{ request.form.valentina }}">
+            <input type="radio" id="valentina" name="hoteles" value="2">
 
             <label for="valentina">Valentina</label><br>
-            <input type="radio" id="bufalo" name="hoteles" value="{{ request.form.bufalo }}">
+            <input type="radio" id="bufalo" name="hoteles" value="3">
             <label for="bufalo">Búffalo</label>
 
         <br>
@@ -26,9 +26,39 @@
         <br>
 
         <label for="fin">Fecha de salida</label>
-        <input type="date" name="fecha_salida" id="fecha_salida" value="{{ request.form.fecha_salida }}">
+        <input type="date" name="fecha_salida" id="fecha_salida" value="{{request.form.fecha_salida}}">
         <br>
+
+        <!--
         <input class="btn btn-default" type="submit" name="crear" id="crear" value="Crear">
+
+        <br>
+        /-->
+
+        <!-- JAVASCRITP una vez más nos encontramos viejo enemigo/-->
+        <button type="submit" onclick="displayRadioValue()">
+            Crear
+        </button>
+
+        <br>
+
+        <input type="hidden" id="result" name="hotel" value="">
+
+        <script>
+            function displayRadioValue() {
+                document.getElementById("result").innerHTML = "";
+                var ele = document.getElementsByName('hoteles');
+
+                for(i = 0; i < ele.length; i++) {
+
+                    if(ele[i].type="radio") {
+
+                        if(ele[i].checked)
+                            document.getElementById("result").value = ele[i].value;
+                    }
+                }
+            }
+        </script>
     </form>
 </body>
 </html>
