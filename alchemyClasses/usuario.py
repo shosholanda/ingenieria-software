@@ -13,11 +13,12 @@ class Usuario(db.Model):
     idactividades = db.Column('idactividad', db.Integer)
 
     #Usuario completo
-    def __init__(self,  email,
+    def init(self,  email,
                         nombre,
                         passwd,
                         edad,
                         celular,
+                        nacionalidad,
                         tipo_usuario,
                         idactividades):
         self.email = email
@@ -25,14 +26,9 @@ class Usuario(db.Model):
         self.passwd = passwd
         self.edad = edad
         self.celular = celular
+        self.nacionalidad = nacionalidad
         self.tipo_usuario = tipo_usuario
         self.idactividades = idactividades
-
-    #DTO para usuario, solo necesitamos el login
-    def __init__(self, email, nombre, passwd):
-        self.email = email
-        self.nombre = nombre
-        self.passwd = passwd
 
     def __repr__(self) -> str:
         return f'Usuario: {self.nombre}\nCorreo: {self.email}\nContra: {self.passwd}'
