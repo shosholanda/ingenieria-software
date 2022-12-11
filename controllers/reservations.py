@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session, redirect, url_for, flash
+from flask import Blueprint, render_template, request, session, redirect, url_for, flash, Markup, escape
 from models.model_reservaciones import crear_reservacion as create
 from models.model_reservaciones import obtener_reservacion
 from models.model_reservaciones import obtener_reservaciones
@@ -8,6 +8,7 @@ from alchemyClasses.reservacion import Reservacion
 from controllers.login import login_required
 from models.model_hostales import obtener_hostal
 from models.model_hostales import obtener_hostales
+
 
 import itertools
 
@@ -42,16 +43,17 @@ def crear_reservacion():
     if request.method == 'POST':
         error = None
         #El usuario existe y se pueden agregar reservaciones
-        try:
-            idhostal = request.form['hotel']
-            num_personas = request.form['num_personas']
-            inicio = request.form['fecha_inicio']
-            fin = request.form['fecha_salida']
+        idhostal = request.form['hotel']
+        num_personas = request.form['num_personas']
+        inicio = request.form['fecha_inicio']
+        fin = request.form['fecha_salida']
 
-            num_personas = int(num_personas)
-            hostal = obtener_hostal(idhostal).nombre
-            resv = Reservacion(session['mail'], idhostal, num_personas, inicio, fin, hostal)
-            create(resv)
+        num_personas = int(num_personas)
+        hostal = obtener_hostal(idhostal).nombre
+        resv = Reservacion(session['mail'], idhostal, num_personas, inicio, fin, hostal)
+        create(resv)
+        try:
+            print("hola")
         except:
             error = 'Datos incorrectos'
             flash(error)
@@ -65,7 +67,7 @@ def crear_reservacion():
             flash(error)
             return f"<h1> {error} </h1>"
 
-    return render_template("reservacion/reservations.html", hostales = hostales_disponibles)
+    return render_template("reservacion/show-reservations.html", hostales = hostales_disponibles)
 
 #READ reservacion
 @view_reservations.route("/consultar", methods=['GET'])
@@ -78,7 +80,9 @@ def consultar_reservaciones():
     return render_template("reservacion/show-reservations.html", consulta = resultados)
 
 #UPDATE reservacion
-@view_reservations.route("/actualizar/<int:idresv>", methods=['GET', 'POST'])
+
+
+@view_reservations.route("/consultar/<int:idresv>", methods=['GET', 'POST'])
 @login_required
 def actualiza_reservacion(idresv):
     hostales_disponibles = obtener_hostales()
@@ -109,7 +113,7 @@ def actualiza_reservacion(idresv):
         else:
             flash(error)
             return redirect(url_for('reservacion.actualiza_reservacion', idresv=idresv))
-    return render_template("reservacion/update_reservation.html", hostales = hostales_disponibles)
+    return render_template("reservacion/show-reservations.html", hostales = hostales_disponibles)
 
 @view_reservations.route("/delete/<int:idresv>", methods=['GET', 'POST'])
 @login_required

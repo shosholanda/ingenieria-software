@@ -10,8 +10,6 @@
 </nav>
 <section class="content">
   <header>
-    <li>Crear reservacion<a href="{{ url_for('reservacion.crear_reservacion') }}">Crear reservacion</a>
-    <br>
     <li>Consultar todas las reservaciones<a href="{{ url_for('reservacion.consultar_reservaciones') }}">Consultar reservacion</a>
   </header>
   {% for message in get_flashed_messages() %}

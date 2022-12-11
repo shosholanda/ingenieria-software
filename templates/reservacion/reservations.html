@@ -5,10 +5,11 @@
     <title>Crear una reservación</title>
 </head>
 <body>
-    <h2>Ingresa los siguientes campos para poder crear una reservacion</h2>
+    
     <form action="" method="POST">
         <p>Hotel</p>
             {% for hostal in hostales %}
+            <h2>Ingresa los siguientes campos para poder crear una reservacion</h2>
                 <input type="radio" id="{{ hostal.nombre}}" name="hoteles" value="{{ hostal.idhostal}}">
                 <label for="{{ hostal.nombre}}"> {{hostal.nombre}}</label><br>
 
@@ -57,6 +58,7 @@
             }
         </script>
     </form>
+    
     {% for message in get_flashed_messages() %}
         <div class="flash">{{ message }}</div>
     {% endfor %}

@@ -1,15 +1,5 @@
 /*Estructura Básica del Programa, ya sabes los fondos y esas weas*/
-#modal {
-  display: block;
-  width: 300px;
-  height: 100px;
-  border:1px solid #CCC;
-  background:#EEE;
-}
 
-#modal:target {
-  display: none;
-}
 
 #P{
   position: absolute;

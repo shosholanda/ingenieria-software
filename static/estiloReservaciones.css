@@ -1,0 +1,17 @@
+/*Estructura Básica del Programa, ya sabes los fondos y esas weas*/
+
+#overlay{
+  display: none;
+}
+
+#overlay:target {
+  display: block;
+}
+
+#overlay2{
+  display: none;
+}
+
+#overlay2:target {
+  display: block;
+}
