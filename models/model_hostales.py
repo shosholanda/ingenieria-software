@@ -8,3 +8,5 @@ def obtener_hostal(idhostal):
     ans = Hostal.query.filter(Hostal.idhostal == idhostal).first()
     return ans
 
+def obtener_hostales():
+    return Hostal.query.all()
