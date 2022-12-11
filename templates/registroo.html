@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar un usuario</title>
+</head>
+<body>
+    <h2>Ingresa los siguientes campos para poder crear un usuario</h2>
+    <form action="" method="POST">
+       
+        <label for="">Correo</label>
+        <input type="text" name="correo" id="correo" value="">
+        <br>
+        
+        <label for="">Nombre completo</label>
+        <input type="text" name="nombre" id="nombre" value="">
+        <br>
+
+        <label for="">Contraseña</label>
+        <input type="text" name="hash_contraseña" id="hash_contraseña" value="">
+        <br>
+
+        <label for="">Edad</label>
+        <input type="text" name="edad" id="edad" value="">
+        <br>
+        
+        <label for="">Celular</label>
+        <input type="text" name="celular" id="celular" value="">
+        <br>
+
+        <label for="">País</label>
+        <input type="text" name="nacionalidad" id="nacionalidad" value="">
+        <br>
+
+        <label for="">Tipo de usuario</label>
+        <input type="text" name="tipo_usuario" id="tipo_usuario" value="">
+        <br>
+
+
+        <!-- JAVASCRITP una vez más nos encontramos viejo enemigo/-->
+        <button type="submit" onclick="displayRadioValue()">
+            Crear
+        </button>
+
+        <br>
+
+    </form>
+    
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+
+</body>
+</html>
