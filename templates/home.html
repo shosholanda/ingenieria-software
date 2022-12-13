@@ -41,23 +41,46 @@
           <img class="P7" src="{{ url_for('static', filename='f5.png') }}" alt="Fondos Principal">
           <img class="P6" src="{{ url_for('static', filename='f6.png') }}" alt="cuadrado naranja">
         </div>
+        <div class="ArtCero">
+          <a>¡Busca una ciudad, hostal o lugar famoso!</a>
+        </div>
+        <form action="#">
+          <select name="idioma" id="idioma" class="idioma">
+            <option value="español">Esp</option>
+            <option value="inglés">Eng</option>
+            <option value="日本">日本</option>
+            <option value="UwU">UwU</option>
+          </select>
+        </form>
+
+        <a href="http://127.0.0.1:5000/10pt2">
+          <button type="button" class="botonTres">Favoritos ♥</button>
+        </a>
+
+        <a href="http://127.0.0.1:5000/registro/">
+          <button type="button" class="botonUno">Registrarse</button>
+          </a>
+          <a href="http://127.0.0.1:5000/login">
+          <button type="button" class="botonDos">Iniciar Sesión</button>
+          </a>
+
         <div class="Err1">
               <ul >
-                <li><a class="h1" href="http://127.0.0.1:5000/" style="text-decoration: none; color: #DBD3D8">CheckRewards</a> </li>
+                <li><a class="h1" href="http://127.0.0.1:5000/10" style="text-decoration: none; color: #DBD3D8">CheckRewards</a> </li>
 
                   <li><a class="h2" href="#" style="text-decoration: none ; color: #DBD3D8"> Hostales </a>
                     <ul>
-                      <li><a class="Int1" style="text-decoration:none ; color: #DBD3D8 " href="">Instalaciones </a></li>
-                      <li><a class="Int2" style="text-decoration: none ; color: #DBD3D8" href="">Inscripciones</a></li>
+                      <li><a class="Int1" style="text-decoration:none ; color: #DBD3D8 " href="http://127.0.0.1:5000/login/">Habitaciones </a></li>
+                      <li><a class="Int2" style="text-decoration: none ; color: #DBD3D8" href="">Actividades</a></li>
                     </ul>
                   </li>
                     <li><a class="h3" href="" style="text-decoration: none; color: #DBD3D8 " >Servicios</a>
                     <ul>
-                      <li><a class="Int3" style=" text-decoration: none; color : #DBD3D8" >Servicios Extracurriculares</a></li>
-                    <li><a class="Int4" style=" text-decoration : none ; color : #DBD3D8" >Servicios Adicionales</a></li>
+                      <li><a class="Int3" href="" style=" text-decoration: none; color : #DBD3D8" >Eventos</a></li>
+                      <li><a class="Int4" href="" style=" text-decoration : none ; color : #DBD3D8" >Amenidades</a></li>
                     </ul>
                   </li>
-                      <li><a class="h4" href="" style="text-decoration: none ; color: #DBD3D8"> Contacto</a> </li>
+                      <li><a class="h4" href="#popFon" style="text-decoration: none ; color: #DBD3D8"> Contacto</a> </li>
                         <li><a class="h5" href="http://127.0.0.1:5000/login/" style="text-decoration: none ; color: #DBD3D8"> Reservaciones </a></li>
               </ul>
             </div>
@@ -77,9 +100,7 @@
           <a>Ahorra hasta un 90% uniendote al programa CheckRewards™</a><br>
           <a>en hostales alrededor de todo el mundo.</a>
         </div>
-        <div class="ArtCero">
-          <a>¡Busca una ciudad, hostal o lugar famoso!</a>
-        </div>
+        
         <div class="ArtTres">
         <a>* En algunos casos nos quedaremos con todo tu dinero porque si. Obtén más información en el sitio web.</a>
         <a>© 2022 Check.in es una empresa de Tlacuache Group. Todos los derechos reservados</a>
@@ -88,22 +109,6 @@
       </div>
         </article>
         </section>
-        <a href="http://127.0.0.1:5000/registro/">
-        <button type="button" class="botonUno">Registrarse</button>
-        </a>
-        <a href="http://127.0.0.1:5000/login">
-        <button type="button" class="botonDos">Iniciar Sesión</button>
-        </a>
-        <form action="#">
-          <select name="idioma" id="idioma" class="idioma">
-            <option value="español">Esp</option>
-            <option value="inglés">Eng</option>
-            <option value="日本">日本</option>
-            <option value="UwU">UwU</option>
-          </select>
-        </form>
-
-        <button type="button" class="botonTres">Favoritos ♥</button>
 
         <div class="botNav">
           <input type="text" placeholder="🔍 Escribe el nombre del hostal" size="50">
@@ -121,9 +126,39 @@
         </form>
 
         <div>
-          <a href="http://127.0.0.1:5000/login/" >
+          <a href="#popFon" >
           <img class="P8"  src="{{ url_for('static', filename='fon.png') }}" alt="fon"  />
           </a>
+          </div>
+
+          <div id="popFon">
+            <img class='fondoN' src="{{ url_for('static', filename='f10.png') }}" alt='Fondo-negro'>
+            <div id="cuadroFon">
+              <br>
+                Bienvenido a nuestro<br>contacto en linea<br>
+              <div class="cuerpoFon1">
+                Grupo Tlacuache es una empresa comprometida en <br>
+                resguardar y asegurar la información de sus clientes y <br>
+                hacemos de su conocimiento que por ningún motivo le <br>
+                solicitaremos datos confidenciales como número de <br>
+                tarjetas de crédito y NSS por este medio. Le pedimos <br>
+                por favor sólo proporcionarla por los medios provistos a<br>
+                nuestros ejecutivos.
+              </div>
+              <div class="cuerpoFon2">
+                WhatsApp: 5531768306
+              </div>  
+              <div class="cuerpoFon3">
+                Correo: TlacuacheGroup@Maldo.com 
+              </div> 
+              <div class="cuerpoFon4">
+                La información personal que nos proporciona será <br>
+                utilizada para prestar los servicios que usted solicita. <br>
+                Para mayor información acerca del tratamiento que <br>
+                damos a la misma, Consulte nuestro Aviso de privacidad
+              </div> 
+              <a class='closeFon' href='#'>&times;</a>
+            </div>
           </div>
 
       </body>
