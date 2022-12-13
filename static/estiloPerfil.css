@@ -1,0 +1,611 @@
+/*Estructura Básica del Programa, ya sabes los fondos y esas weas*/
+
+#P{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+/*logo*/
+.p1{
+  width: 200px;
+  height: 100px;
+  cursor: pointer;
+}
+
+/*Barra del menu*/
+.p2{
+  position: absolute;
+  left: 201px;
+  top: 0px;
+  width: 86.9%;
+  height: 100px;
+}
+
+.P3{
+  position: absolute;
+  top: 48px;
+  left: 201px;
+  width: 86.9%; height: 7.5%;
+
+}
+
+.P4{
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%; height: 7.5%;
+
+}
+
+.P5{
+  margin-right: 0px;
+  margin-left: 0px;
+  position: absolute ;
+  left: 0px;
+  top: 140px;
+  opacity: 0.85;
+  width: 100%; height: 68%;
+}
+
+.P6{
+  position: absolute;
+  top: 140px;
+  left: 220px;
+  width: 72%;
+  height: 68%;
+  border-radius: 30px;
+}
+
+.P7{
+  position: absolute;
+  top: 140px;
+  left: 220px;
+  width: 72%;
+  height: 13%;
+  border-radius: 30px;
+  opacity: 90%;
+}
+
+.P8{
+  position: absolute;
+  top: 260px;
+  right: 370px;
+  height: 30%;
+  border-radius: 150px;
+}
+
+.P9{
+  position: absolute;
+  top: -50px;
+  left: -20px;
+  width: 101.3%;
+  height: 106.7%;
+  opacity: 0.3;
+}
+
+.fon{
+  position: absolute;
+  margin-left: 0px;
+  top: 590px;
+  right: 25px;
+  width: 162px;
+  height: 127px;
+}
+
+.botonUno{
+  position: relative;
+  border: none;
+  padding: 10px 75px;
+  bottom: -45px;
+  left: 100px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #DBD3D8;
+  background-color: #223843;
+}
+
+.botonDos{
+  position: relative;
+  float: right;
+  border: none;
+  padding: 4px 20px;
+  top: -8px;
+  color: #223843;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  background-color: #D8B4A0;
+  border-radius: 10px;
+}
+
+.botonTres{
+  position: absolute;
+  top: 60px;
+  right: 130px;
+  color: #DBD3D8;
+  background-color: #223843;
+  border: none;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.ArtTres{
+  position: absolute;
+  bottom: 10px;
+  left: 50px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 10px;
+  color: #DBD3D8;
+}
+
+.ArtCuatro{
+  position: absolute;
+  bottom: 130px;
+  right: 300px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.idioma{
+  position: absolute;
+  top: 60px;
+  right: 35px;
+  color: #DBD3D8;
+  background-color: #223843;
+  border: none;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#titulo1{
+  position: absolute;
+  top: 40px;
+  left: 235px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: #DBD3D8;
+}
+
+#titulo2{
+  position: absolute;
+  top: 170px;
+  left: 240px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 35px;
+  color: #DBD3D8;
+  
+}
+
+#titulo3{
+  position: absolute;
+  top: 600px;
+  left: 40px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: #223843;
+  opacity: .85;
+}
+
+#titulo4{
+  position: absolute;
+  top: 550px;
+  left: 40px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: #223843;
+  opacity: .85;
+}
+
+/*Opciones del Menu*/
+/*CheckRewards*/
+.h1 {
+  position: absolute;
+  top: -10px;
+  left: 185px;
+  margin-bottom: 20px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 50px;
+  padding-bottom: 8px;
+  padding-right: 13px;
+  margin-right: 13px;
+  font-size: 25px;
+  /*border-color: white;*/
+  margin-top: 10px;
+  padding-top: 4px;
+  border-right-style: solid;
+  border-right-width: medium;
+}
+/*Hostales*/
+.h2 {
+  position: absolute;
+  top: -10px;
+  left: 400px;
+  margin-bottom: 20px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 40px;
+  padding-bottom: 8px;
+  padding-right: 18px;
+  margin-right: 18px;
+  margin-top: 10px;
+  padding-top: 4px;
+  font-size: 25px;
+  border-right-style: solid;
+  border-right-width: medium;
+
+}
+/*Servicios*/
+.h3 {
+  position: absolute;
+  top: -10px;
+  left: 515px;
+  margin-bottom: 20px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 60px;
+  padding-bottom: 8px;
+  padding-right: 15px;
+  margin-right: 15px;
+  font-size: 25px;
+  margin-top: 10px;
+  padding-top: 4px;
+  border-right-style: solid;
+  border-right-width: medium;
+}
+/*Contacto*/
+.h4 {
+  position: absolute;
+  top: 0px;
+  left: 680px;
+  margin-bottom: 0px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 40px;
+  padding-bottom: 8px;
+  padding-top: 4px;
+  padding-right: 18px;
+  margin-right: 18px;
+  font-size: 25px;
+}
+
+/*subindices del Menu*/
+
+ul {
+list-style: none;
+}
+
+ul li ul {
+  display: none;
+  list-style: none;
+
+}
+
+ul li:hover>ul{
+  list-style: none;
+  display: block;
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  text-align: left;
+  font-size: 20px;
+
+
+}
+
+.Int1{
+  position: absolute;
+  top: 38px;
+  left: 418px;
+  list-style: none;
+  background-color: #cf5842;
+  margin-left: 5px;
+  margin-right: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left:  5px;
+  padding-right: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-color: white;
+  border-top-style: solid;
+  border-top-width: medium;
+  border-bottom-style: solid;
+  border-bottom-width: medium;
+
+}
+.Int2{
+position: absolute;
+top: 91px;
+left: 418px;
+list-style: none;
+background-color: #cf5842;
+margin-left: 5px;
+margin-right: 6px;
+margin-top: 10px;
+margin-bottom: 10px;
+padding-left:  12px;
+padding-right: 12px;
+padding-top: 10px;
+padding-bottom: 10px;
+
+}
+
+.Int3
+{
+position: absolute;
+top: 48px;
+left: 559px;
+list-style: none;
+background-color: #cf5842;
+padding-left:  32px;
+padding-right: 32px;
+padding-top: 10px;
+padding-bottom: 10px;
+border-color: white;
+border-top-style: solid;
+border-top-width: medium;
+border-bottom-style: solid;
+border-bottom-width: medium;
+
+}
+
+.Int4
+{
+position: absolute;
+top: 101px;
+left: 559px;
+list-style: none;
+background-color: #cf5842;
+padding-left:  11px;
+padding-right: 10px;
+padding-top: 10px;
+padding-bottom: 10px;
+border-color: white;
+border-bottom-style: solid;
+border-bottom-width: medium;
+}
+
+.perfil{
+  position: relative;
+  top: 30px;
+  left: 100px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  color: #223843;
+}
+
+.cambiar1{
+  border: none;
+  color: #223843;
+  background-color: #FF6C51;
+}
+
+.cambiar15{
+  position: absolute;
+  bottom: 75px;
+  left: 380px;
+  border: none;
+  color: #223843;
+  background-color: #FF6C51;
+}
+
+.cambiar2{
+  position: absolute;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #223843;
+  background-color: white;
+  top: 460px;
+  right: 290px;
+}
+
+.cambiar3{
+  position: absolute;
+  bottom: 75px;
+  left: 320px;
+  border: none;
+  color: #223843;
+  background-color: #FF6C51;
+}
+
+.cambiar4{
+  position: absolute;
+  bottom: 6px;
+  left: 112px;
+  border: none;
+  color: #223843;
+  background-color: #FF6C51;
+}
+
+#cuadro {
+  
+  position: absolute;
+  width: 300px;
+  height: 125px;
+  top: 300px;
+  left: 600px;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  border:1px solid #CCC;
+  background:#DBD3D8;
+}
+
+#pop{
+  display: none;  
+}
+
+#pop:target {
+  display: block;
+}
+
+#pop2{
+  display: none;
+  position: absolute;  
+  bottom: 70px;
+  left: 150px;
+}
+
+#pop2:target {
+  display: block;
+}
+
+#pop3{
+  display: block;
+  position: absolute;  
+  bottom: 70px;
+  left: 150px;
+}
+
+#pop3:target {
+  display: none;
+}
+
+.close {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  transition: all 200ms;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #223843;
+}
+
+.close:hover {
+  color: #CF5842;
+}
+
+a:link {
+  color: #223843;
+  text-decoration: none;
+}
+
+a:active {
+  color: #223843;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #223843;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #DBD3D8;
+  text-decoration: none;
+}
+
+.botonUno:hover{
+  color: #223843;
+  background-color: #DBD3D8;
+}
+
+#popFon{
+  display: none;  
+}
+
+#popFon:target {
+  display: block;
+}
+
+#cuadroFon {
+  
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 200px;
+  left: 580px;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: #CF5842;
+  background: white;
+}
+
+.closeFon {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  transition: all 200ms;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #223843;
+}
+
+.closeFon:hover {
+  color: #CF5842;
+}
+
+.fondoN{
+  position: absolute;
+  top: -50px;
+  left: -20px;
+  width: 101.3%;
+  height: 106.7%;
+  opacity: 80%;
+}
+
+.cuerpoFon1{
+  position: relative;
+  top: 20px;
+  left: 50px;
+  text-align: left;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  color: #223843;
+}
+
+.cuerpoFon2{
+  position: relative;
+  top: 40px;
+  left: 50px;
+  text-align: left;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: #CF5842;
+}
+
+.cuerpoFon3{
+  position: relative;
+  top: 50px;
+  left: 50px;
+  text-align: left;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: #CF5842;
+}
+
+.cuerpoFon4{
+  position: relative;
+  top: 70px;
+  left: 50px;
+  text-align: left;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 10px;
+  color: #223843;
+}

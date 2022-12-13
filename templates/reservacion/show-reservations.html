@@ -1,21 +1,292 @@
 <!doctype html>
-<title>Reservations</title>
+<title>Reservaciones</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='estiloReservaciones.css') }}"/>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+</head>
 <body>
-  <h1>Reservaciones registradas:</h1>
-  {% for reservacion in consulta %}
-      <div>
-          <h5>{{ reservacion.hostal }}</h5>
-          <p> Numero de personas:{{ reservacion.num_personas }}</p>
-          <p> Fecha inicio:{{ reservacion.inicio }}</p>
-          <p> Fecha salida:{{ reservacion.final}}</p>
-      </div>
-      <div>
-          <a href="{{ url_for('reservacion.actualiza_reservacion', idresv=reservacion.idreservacion)}} ">Editar</a>
-          <a href="{{ url_for('reservacion.elimina_reservacion', idresv=reservacion.idreservacion)}}">Eliminar</a>
-      </div>
-  {% endfor %}
-  {% for message in get_flashed_messages() %}
-    <div class="flash">{{ message }}</div>
-  {% endfor %}
+    <section class="content">
+        <header>
+            <div id="P">
+                <a href="http://127.0.0.1:5000/" >
+                <img class="p1"  src="{{ url_for('static', filename='Logo.png') }}" alt="Logo" height="180" width="280" />
+                </a>
+              </div>
+      
+              <div id="Gen">
+                <img class="p2" src="{{ url_for('static', filename='f1.png') }}" alt="Naranja" />
+                <img class="P3" src="{{ url_for('static', filename='f2.png') }}" alt="Blanc"/>  
+                
+                
+              </div>
+
+              <div class="Err1">
+                <ul >
+                  <li><a class="h1" href="http://127.0.0.1:5000/10" style="text-decoration: none; color: #DBD3D8">CheckRewards</a> </li>
+          
+                    <li><a class="h2" href="#" style="text-decoration: none ; color: #DBD3D8"> Hostales </a>
+                      <ul>
+                        <li><a class="Int1" style="text-decoration:none ; color: #DBD3D8 " href="http://127.0.0.1:5000/reservacion/consultar">Habitaciones</a></li>
+                        <li><a class="Int2" style="text-decoration: none ; color: #DBD3D8" href="">Actividades</a></li>
+                      </ul>
+                    </li>
+                      <li><a class="h3" href="" style="text-decoration: none; color: #DBD3D8 " >Servicios</a>
+                      <ul>
+                        <li><a class="Int3" href="" style=" text-decoration: none; color : #DBD3D8" >Eventos</a></li>
+                      <li><a class="Int4" href="" style=" text-decoration : none ; color : #DBD3D8" >Amenidades</a></li>
+                      </ul>
+                    </li>
+                        <li><a class="h4" href="#popFon" style="text-decoration: none ; color: #DBD3D8"> Contacto</a> </li>
+                      
+                </ul>
+              </div>
+
+        </header>
+
+        <div id="overlay" >
+            <img class="fondoOver1" src="{{ url_for('static', filename='f7.png') }}" alt="fondo"/> 
+            <div id="cuerpoOver1">  
+                <h2>Ingresa los siguientes campos para modificar la reservacion</h2>
+                <form action="" method="POST">
+                    <p>Hoteles disponibles para cambio: </p>
+                        {% for hostal in hostales %}
+                            
+                            <input type="radio" id="{{ hostal.nombre}}" name="hoteles" value="{{ hostal.idhostal}}">
+                            <label for="{{ hostal.nombre}}"> {{hostal.nombre}}</label><br>
+
+                        {% endfor %}
+
+                    <br>
+                    <label for="num_personas">Numero de personas</label>
+                    <input type="text" name="num_personas" id="num_personas" value="{{ request.form.num_personas }}">
+                    <br>
+                    <label for="inicio">Fecha de llegada</label>
+                    <input type="date" name="fecha_inicio" id="fecha_inicio" value="{{ request.form.fecha_inicio }}">
+                    <br>
+
+                    <label for="fin">Fecha de salida</label>
+                    <input type="date" name="fecha_salida" id="fecha_salida" value="{{request.form.fecha_salida}}">
+                    <br>
+
+                    <!--
+                    <input class="btn btn-default" type="submit" name="crear" id="crear" value="Crear">
+
+                    <br>
+                    /-->
+
+                    <!-- JAVASCRITP una vez más nos encontramos viejo enemigo/-->
+                    <button type="submit" onclick="displayRadioValue()" id="botModif">
+                        Modificar
+                    </button>
+
+                    <br>
+
+                    <input type="hidden" id="result" name="hotel" value="">
+                
+            </div>
+
+                <script>
+                    function displayRadioValue() {
+                        document.getElementById("result").innerHTML = "";
+                        var ele = document.getElementsByName('hoteles');
+
+                        for(i = 0; i < ele.length; i++) {
+
+                            if(ele[i].type="radio") {
+
+                                if(ele[i].checked)
+                                    document.getElementById("result").value = ele[i].value;
+                            }
+                        }
+                    }
+                </script>
+            </form>
+
+            <img class="esp1" src="{{ url_for('static', filename='f3.png') }}" alt="Barra inferior"/> 
+
+        </div>
+
+        <div id="overlay2">
+            <img class="fondoOver1" src="{{ url_for('static', filename='f7.png') }}" alt="fondo"/> 
+            <div id="cuerpoOver2">
+            <h2>Ingresa los siguientes campos para poder crear una reservacion</h2>
+            <form action="" method="POST">
+                <p>Hoteles disponibles para hacer reservación en tu zona de preferencia:</p>
+                
+                    {% for hostal in hostales %}
+                    
+                        <input type="radio" id="{{ hostal.nombre}}" name="hotel" id="hotel" value="{{ hostal.idhostal}}">
+                        <label for="{{ hostal.nombre}}"> {{hostal.nombre}}</label><br>
+
+                    {% endfor %}
+
+                <br>
+                <label for="num_personas">Numero de personas</label>
+                <input type="text" name="num_personas" id="num_personas" value="{{ request.form.num_personas }}">
+                <br>
+                <label for="inicio">Fecha de llegada</label>
+                <input type="date" name="fecha_inicio" id="fecha_inicio" value="{{ request.form.fecha_inicio }}">
+                <br>
+
+                <label for="fin">Fecha de salida</label>
+                <input type="date" name="fecha_salida" id="fecha_salida" value="{{request.form.fecha_salida}}">
+                <br>
+
+                <!--
+                <input class="btn btn-default" type="submit" name="crear" id="crear" value="Crear">
+
+                <br>
+                /-->
+
+                <!-- JAVASCRITP una vez más nos encontramos viejo enemigo/-->
+                <button type="submit" onclick="displayRadioValue()" id="botModif">
+                    Crear
+                </button>
+
+                <br>
+
+                <input type="hidden" id="result" name="hotel" value="">
+
+            </div>
+                <script>
+                    function displayRadioValue() {
+                        document.getElementById("result").innerHTML = "";
+                        var ele = document.getElementsByName('hoteles');
+
+                        for(i = 0; i < ele.length; i++) {
+
+                            if(ele[i].type="radio") {
+
+                                if(ele[i].checked)
+                                    document.getElementById("result").value = ele[i].value;
+                            }
+                        }
+                    }
+                </script>
+            </form>
+            <img class="esp1" src="{{ url_for('static', filename='f3.png') }}" alt="Barra inferior"/> 
+            <div class="esp2">
+                <a>* En algunos casos nos quedaremos con todo tu dinero porque si. Obtén más información en el sitio web.</a>
+                <a>© 2022 Check.in es una empresa de Tlacuache Group. Todos los derechos reservados</a>
+                <a>Check.in y el logotipo de Check.in son marcas comerciales o marcas registradas de Maldonado.com, LP en Yucatan y/u otras entidades. Las demás marcas registradas son propiedad de sus respectivos dueños.</a>
+                <a>Ayudenme banda no he podido dormir bien y ya empiezo a alucinar con monas chinas</a>
+            </div>
+            
+        </div>
+
+        <a href="http://127.0.0.1:5000/reservacion/consultar">
+        <h1 class="titulo1">Tus reservaciones</h1>
+        </a>
+        <div class="cuerpo">
+            <a  href="{{ url_for('reservacion.crear_reservacion') }}#overlay2">
+                <button type="button" class="botonCrear">
+                Crear reservacion
+                </button>
+            </a>
+            {% for reservacion in consulta %}
+            <div class="card1">
+            <img class="fondoCard" src="{{ url_for('static', filename='f11.png') }}" alt="fondoNaranja"> 
+            <h5 id="tituloRes">{{ reservacion.hostal }}</h5>
+            <img class="sambuca" src="{{ url_for('static', filename='sambuca.jpg') }}" alt="sambuca"> 
+            <div class="textoCard">
+                <p> Numero de personas: {{ reservacion.num_personas }}</p>
+                <p> Fecha inicio:  {{ reservacion.inicio }}</p>
+                <p> Fecha salida:  {{ reservacion.final}}</p>
+                <img class="servicios" src="{{ url_for('static', filename='servicios.png') }}" alt="servicios"> 
+                <div class="botoncard">
+                    
+                    <a href="{{ url_for('reservacion.elimina_reservacion', idresv=reservacion.idreservacion)}}">
+                        <button type="button" class="botCard1">
+                            Eliminar
+                        </button>
+                    </a>
+
+                    <a href="{{ url_for('reservacion.actualiza_reservacion', idresv=reservacion.idreservacion)}}#overlay ">
+                        <button type="button" class="botCard2">
+                            Editar
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="textoCard2">
+                Descripción:<br>
+                Cuenta con 2 habitaciones con cama matrimonial, escritorio de trabajo,<br>
+                clóset, teléfono, cafetera, internet inalámbrico, baño completo,<br> 
+                aire acondicionado y TV de cable con pantalla LCD.</p>
+            </div>
+        </div>
+            {% endfor %}
+            
+            <img class="P4" src="{{ url_for('static', filename='f3.png') }}" alt="Barra inferior"/> 
+            <div class="ArtTres">
+                <a>* En algunos casos nos quedaremos con todo tu dinero porque si. Obtén más información en el sitio web.</a>
+                <a>© 2022 Check.in es una empresa de Tlacuache Group. Todos los derechos reservados</a>
+                <a>Check.in y el logotipo de Check.in son marcas comerciales o marcas registradas de Maldonado.com, LP en Yucatan y/u otras entidades. Las demás marcas registradas son propiedad de sus respectivos dueños.</a>
+                <a>Ayudenme banda no he podido dormir bien y ya empiezo a alucinar con monas chinas</a>
+            </div>
+        </div>
+
+        <form action="#">
+            <select name="idioma" id="idioma" class="idioma">
+              <option value="español">Esp</option>
+              <option value="inglés">Eng</option>
+              <option value="日本">日本</option>
+              <option value="UwU">UwU</option>
+            </select>
+        </form>
+
+        <div>
+            <a href="#popFon" >
+                <img class="fon"  src="{{ url_for('static', filename='fon.png') }}" alt="fon"  />
+            </a>
+        </div>
+    
+        <a href="http://127.0.0.1:5000/10pt2">
+            <button type="button" class="botonTres">Favoritos ♥</button>
+          </a>
+
+        <a href="{{ url_for('logout.logout') }}">
+            <button type="button" class="botonDos">Cerrar sesión</button>
+        </a>
+
+        <div id="popFon">
+            <img class='fondoN' src="{{ url_for('static', filename='f10.png') }}" alt='Fondo-negro'>
+            <div id="cuadroFon">
+              <br>
+                Bienvenido a nuestro<br>contacto en linea<br>
+              <div class="cuerpoFon1">
+                Grupo Tlacuache es una empresa comprometida en <br>
+                resguardar y asegurar la información de sus clientes y <br>
+                hacemos de su conocimiento que por ningún motivo le <br>
+                solicitaremos datos confidenciales como número de <br>
+                tarjetas de crédito y NSS por este medio. Le pedimos <br>
+                por favor sólo proporcionarla por los medios provistos a<br>
+                nuestros ejecutivos.
+              </div>
+              <div class="cuerpoFon2">
+                WhatsApp: 5531768306
+              </div>  
+              <div class="cuerpoFon3">
+                Correo: TlacuacheGroup@Maldo.com 
+              </div> 
+              <div class="cuerpoFon4">
+                La información personal que nos proporciona será <br>
+                utilizada para prestar los servicios que usted solicita. <br>
+                Para mayor información acerca del tratamiento que <br>
+                damos a la misma, Consulte nuestro Aviso de privacidad
+              </div> 
+              <a class='closeFon' href='#overlay'>&times;</a>
+            </div>
+          </div>
+
+        
+    </section>
+
+    {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
 
 </body>

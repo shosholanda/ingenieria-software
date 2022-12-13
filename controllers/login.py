@@ -13,6 +13,7 @@ def login():
     if request.method == 'POST':
         #nombre = request.form['username']
         passwd = request.form['password']
+        passwd2 = request.form['password']
         if passwd == "":
             avr = 1;
         else:
@@ -26,6 +27,10 @@ def login():
             session['user_id'] = usuario.nombre
             session['tipo'] = usuario.tipo_usuario
             session['mail'] = mail
+            session['edad'] = usuario.edad
+            session['contra'] = passwd2
+            session['celular'] = usuario.celular
+            session['nacionalidad'] = usuario.nacionalidad
             g.user = usuario.nombre
             return redirect(url_for("login.success"))
         else:
@@ -45,7 +50,8 @@ def success():
             return render_template("auth/successAdmin.html")
         else:
             return render_template("auth/success.html")
-    flash("ERROR: Cookie de sesion vacia")
+    error = Markup("<div><img class='P7' src='../static/f5.png' alt='Fondo-blanc'></div><div id='modal'>‎ <br>‎ <br>Por favor inicia sesión de nuevo. <a class='close 'href=''>&times;</a></div>")
+    flash(error)
     return redirect(url_for('login.login'))
 
 @loginBlueprint.route("/failure", methods=["GET"])

@@ -45,6 +45,7 @@
   border-radius: 10px;
   top: 485px;
   left: 840px;
+  font-family: 'Noto Sans KR', sans-serif;
   color: #DBD3D8;
   background-color: #223843;
   border: none;
@@ -271,7 +272,7 @@
 .ArtCinco{
   position: absolute;
   bottom: 235px;
-  right: 110px;
+  left: 1170px;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
   font-size: 15px;
@@ -395,49 +396,12 @@ ul li:hover>ul{
 
 }
 
-  .Int1{
-    position: absolute;
-    top: 140px;
-    left: 425px;
-    list-style: none;
-    background-color: #244480;
-    margin-left: 5px;
-    margin-right: 8px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-left:  5px;
-    padding-right: 8px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-color: white;
-    border-bottom-style: solid;
-    border-bottom-width: medium;
-
-  }
-.Int2{
+.Int1{
   position: absolute;
-  top: 188px;
-  left: 425px;
+  top: 38px;
+  left: 418px;
   list-style: none;
-  background-color: #244480;
-  margin-left: 5px;
-  margin-right: 6px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-left:  5px;
-  padding-right: 6px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-
-}
-
-.Int3
-{
-  position: absolute;
-  top: 140px;
-  left: 536px;
-  list-style: none;
-  background-color: #244480;
+  background-color: #cf5842;
   margin-left: 5px;
   margin-right: 8px;
   margin-top: 10px;
@@ -447,8 +411,62 @@ ul li:hover>ul{
   padding-top: 10px;
   padding-bottom: 10px;
   border-color: white;
+  border-top-style: solid;
+  border-top-width: medium;
   border-bottom-style: solid;
   border-bottom-width: medium;
+
+}
+.Int2{
+position: absolute;
+top: 91px;
+left: 418px;
+list-style: none;
+background-color: #cf5842;
+margin-left: 5px;
+margin-right: 6px;
+margin-top: 10px;
+margin-bottom: 10px;
+padding-left:  12px;
+padding-right: 12px;
+padding-top: 10px;
+padding-bottom: 10px;
+
+}
+
+.Int3
+{
+position: absolute;
+top: 48px;
+left: 559px;
+list-style: none;
+background-color: #cf5842;
+padding-left:  32px;
+padding-right: 32px;
+padding-top: 10px;
+padding-bottom: 10px;
+border-color: white;
+border-top-style: solid;
+border-top-width: medium;
+border-bottom-style: solid;
+border-bottom-width: medium;
+
+}
+
+.Int4
+{
+position: absolute;
+top: 101px;
+left: 559px;
+list-style: none;
+background-color: #cf5842;
+padding-left:  11px;
+padding-right: 10px;
+padding-top: 10px;
+padding-bottom: 10px;
+border-color: white;
+border-bottom-style: solid;
+border-bottom-width: medium;
 }
 
 #modal {
@@ -503,4 +521,141 @@ ul li:hover>ul{
 
 .ArtCuatro:hover{
   box-shadow: 0px 2px 5px #223843;
+}
+
+#pop{
+  display: none;  
+}
+
+#pop:target {
+  display: block;
+}
+
+#cuadro {
+  
+  position: absolute;
+  width: 300px;
+  height: 125px;
+  top: 300px;
+  left: 600px;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  border:1px solid #CCC;
+  background:#DBD3D8;
+}
+
+.P9{
+  position: absolute;
+  top: -50px;
+  left: -20px;
+  width: 101.3%;
+  height: 106.7%;
+  opacity: 0.3;
+}
+
+.close {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  transition: all 200ms;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #223843;
+}
+
+.close:hover {
+  color: #CF5842;
+}
+
+#popFon{
+  display: none;  
+}
+
+#popFon:target {
+  display: block;
+}
+
+#cuadroFon {
+  
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 200px;
+  left: 580px;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: #CF5842;
+  background: white;
+}
+
+.closeFon {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  transition: all 200ms;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #223843;
+}
+
+.closeFon:hover {
+  color: #CF5842;
+}
+
+.fondoN{
+  position: absolute;
+  top: -50px;
+  left: -20px;
+  width: 101.3%;
+  height: 106.7%;
+  opacity: 80%;
+}
+
+.cuerpoFon1{
+  position: relative;
+  top: 20px;
+  left: 50px;
+  text-align: left;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  color: #223843;
+}
+
+.cuerpoFon2{
+  position: relative;
+  top: 40px;
+  left: 50px;
+  text-align: left;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: #CF5842;
+}
+
+.cuerpoFon3{
+  position: relative;
+  top: 50px;
+  left: 50px;
+  text-align: left;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: #CF5842;
+}
+
+.cuerpoFon4{
+  position: relative;
+  top: 70px;
+  left: 50px;
+  text-align: left;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 10px;
+  color: #223843;
 }

@@ -1,15 +1,5 @@
 /*Estructura Básica del Programa, ya sabes los fondos y esas weas*/
-#modal {
-  display: block;
-  width: 300px;
-  height: 100px;
-  border:1px solid #CCC;
-  background:#EEE;
-}
 
-#modal:target {
-  display: none;
-}
 
 #P{
   position: absolute;
@@ -20,7 +10,7 @@
 #Principal{
   position: absolute;
   top: 170px;
-  left: 755px;
+  left: 930px;
   font-family: 'Noto Sans KR', sans-serif;
   color: #DBD3D8;
   font-size: 24px;
@@ -83,8 +73,8 @@
 #Principal7{
   position: absolute;
   border-radius: 10px;
-  top: 390px;
-  left: 745px;
+  top: 340px;
+  left: 1100px;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 24px;
   background-color: #DBD3D8;
@@ -94,7 +84,7 @@
   position: absolute;
   border-radius: 10px;
   top: 240px;
-  right: 100px;
+  left: 1100px;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 24px;
   background-color: #DBD3D8;
@@ -104,7 +94,7 @@
   position: absolute;
   border-radius: 10px;
   top: 290px;
-  right: 100px;
+  left: 1100px;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 24px;
   background-color: #DBD3D8;
@@ -123,8 +113,8 @@
 .botonRegistro{
   position: absolute;
   border: none;
-  top: 402px;
-  right: 200px;
+  top: 412px;
+  left: 1025px;
   padding: 8px 35px;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 16px;
@@ -132,6 +122,7 @@
   font-weight: bold;
   color: #DBD3D8;
   background-color: #223843;
+  border-radius: 10px;
 }
 
 .container{
@@ -216,8 +207,8 @@
   position: relative;
   border: none;
   padding: 10px 45px;
-  top: 280px;
-  left: 880px;
+  top: 310px;
+  left: 920px;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 16px;
   cursor: pointer;
@@ -230,8 +221,8 @@
   position: relative;
   border-color: #4285f4;
   padding: 8px 20px;
-  top: 280px;
-  left: 950px;
+  top: 310px;
+  left: 982px;
   color: #4285f4;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 16px;
@@ -256,8 +247,8 @@
   position: relative;
   border-color: black;
   padding: 7px 25px;
-  top: 340px;
-  left: 714px;
+  top: 370px;
+  left: 745px;
   color: black;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 16px;
@@ -334,8 +325,8 @@
 
 .ArtCinco{
   position: absolute;
-  bottom: 235px;
-  right: 665px;
+  bottom: 230px;
+  left: 760px;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
   font-size: 15px;
@@ -345,7 +336,7 @@
 .ArtSeis{
   position: absolute;
   bottom: 165px;
-  right: 480px;
+  left: 800px;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
   font-size: 15px;
@@ -469,49 +460,12 @@ ul li:hover>ul{
 
 }
 
-  .Int1{
-    position: absolute;
-    top: 140px;
-    left: 425px;
-    list-style: none;
-    background-color: #244480;
-    margin-left: 5px;
-    margin-right: 8px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-left:  5px;
-    padding-right: 8px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-color: white;
-    border-bottom-style: solid;
-    border-bottom-width: medium;
-
-  }
-.Int2{
+.Int1{
   position: absolute;
-  top: 188px;
-  left: 425px;
+  top: 38px;
+  left: 418px;
   list-style: none;
-  background-color: #244480;
-  margin-left: 5px;
-  margin-right: 6px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-left:  5px;
-  padding-right: 6px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-
-}
-
-.Int3
-{
-  position: absolute;
-  top: 140px;
-  left: 536px;
-  list-style: none;
-  background-color: #244480;
+  background-color: #cf5842;
   margin-left: 5px;
   margin-right: 8px;
   margin-top: 10px;
@@ -521,9 +475,62 @@ ul li:hover>ul{
   padding-top: 10px;
   padding-bottom: 10px;
   border-color: white;
+  border-top-style: solid;
+  border-top-width: medium;
   border-bottom-style: solid;
   border-bottom-width: medium;
 
+}
+.Int2{
+position: absolute;
+top: 91px;
+left: 418px;
+list-style: none;
+background-color: #cf5842;
+margin-left: 5px;
+margin-right: 6px;
+margin-top: 10px;
+margin-bottom: 10px;
+padding-left:  12px;
+padding-right: 12px;
+padding-top: 10px;
+padding-bottom: 10px;
+
+}
+
+.Int3
+{
+position: absolute;
+top: 48px;
+left: 559px;
+list-style: none;
+background-color: #cf5842;
+padding-left:  32px;
+padding-right: 32px;
+padding-top: 10px;
+padding-bottom: 10px;
+border-color: white;
+border-top-style: solid;
+border-top-width: medium;
+border-bottom-style: solid;
+border-bottom-width: medium;
+
+}
+
+.Int4
+{
+position: absolute;
+top: 101px;
+left: 559px;
+list-style: none;
+background-color: #cf5842;
+padding-left:  11px;
+padding-right: 10px;
+padding-top: 10px;
+padding-bottom: 10px;
+border-color: white;
+border-bottom-style: solid;
+border-bottom-width: medium;
 }
 
 .botonUno:hover{
@@ -579,4 +586,95 @@ ul li:hover>ul{
 
 .close:hover {
   color: #CF5842;
+}
+
+#popFon{
+  display: none;  
+}
+
+#popFon:target {
+  display: block;
+}
+
+#cuadroFon {
+  
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 200px;
+  left: 580px;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: #CF5842;
+  background: white;
+}
+
+.closeFon {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  transition: all 200ms;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #223843;
+}
+
+.closeFon:hover {
+  color: #CF5842;
+}
+
+.fondoN{
+  position: absolute;
+  top: -50px;
+  left: -20px;
+  width: 101.3%;
+  height: 106.7%;
+  opacity: 80%;
+}
+
+.cuerpoFon1{
+  position: relative;
+  top: 20px;
+  left: 50px;
+  text-align: left;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  color: #223843;
+}
+
+.cuerpoFon2{
+  position: relative;
+  top: 40px;
+  left: 50px;
+  text-align: left;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: #CF5842;
+}
+
+.cuerpoFon3{
+  position: relative;
+  top: 50px;
+  left: 50px;
+  text-align: left;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: #CF5842;
+}
+
+.cuerpoFon4{
+  position: relative;
+  top: 70px;
+  left: 50px;
+  text-align: left;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: 10px;
+  color: #223843;
 }

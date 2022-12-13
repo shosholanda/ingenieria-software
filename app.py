@@ -27,4 +27,11 @@ if __name__ == '__main__':
     db.create_all()
     app.run()
 
+@app.route('/10', methods=['GET','POST'])
+def ten():
+    return render_template('10.html')
+
+@app.route('/10pt2', methods=['GET','POST'])
+def ten2():
+    return render_template('10pt2.html')
 

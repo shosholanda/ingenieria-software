@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session, redirect, url_for, flash
+from flask import Blueprint, render_template, request, session, redirect, url_for, flash, Markup, escape
 from models.model_reservaciones import crear_reservacion as create
 from models.model_reservaciones import obtener_reservacion
 from models.model_reservaciones import obtener_reservaciones
@@ -8,6 +8,7 @@ from alchemyClasses.reservacion import Reservacion
 from controllers.login import login_required
 from models.model_hostales import obtener_hostal
 from models.model_hostales import obtener_hostales
+
 
 import itertools
 
@@ -40,9 +41,10 @@ def reservations_main_page():
 def crear_reservacion():
     hostales_disponibles = obtener_hostales()
     if request.method == 'POST':
-        error = None
-        #El usuario existe y se pueden agregar reservaciones
+        
         try:
+            error = None
+            #El usuario existe y se pueden agregar reservaciones
             idhostal = request.form['hotel']
             num_personas = request.form['num_personas']
             inicio = request.form['fecha_inicio']
@@ -53,19 +55,20 @@ def crear_reservacion():
             resv = Reservacion(session['mail'], idhostal, num_personas, inicio, fin, hostal)
             create(resv)
         except:
-            error = 'Datos incorrectos'
+            error = Markup("<div id='modal'><img class='P9' src='../../static/f10.png' alt='Fondo-blanc'><div id='cuadro'>‎ <br>‎ <br>Por favor rellena correctamente todos los datos. <a class='close' href='#overlay2'>&times;</a></div></div>")
             flash(error)
-            return redirect(url_for('reservacion.crear_reservacion'))
+            return redirect(url_for('reservacion.crear_reservacion')+"#modal")
 
         #pasó las validaciones
         if error == None:
             #Crear usuario
             return redirect(url_for('login.success'))
         else:
+            error = Markup("<div id='modal'><img class='P9' src='../../static/f10.png' alt='Fondo-blanc'><div id='cuadro'>‎ <br>‎ <br>Por favor rellena correctamente todos los datos. <a class='close' href='#overlay2'>&times;</a></div></div>")
             flash(error)
-            return f"<h1> {error} </h1>"
+            return redirect(url_for('reservacion.crear_reservacion')+"#modal")
 
-    return render_template("reservacion/reservations.html", hostales = hostales_disponibles)
+    return render_template("reservacion/show-reservations.html", hostales = hostales_disponibles)
 
 #READ reservacion
 @view_reservations.route("/consultar", methods=['GET'])
@@ -78,7 +81,9 @@ def consultar_reservaciones():
     return render_template("reservacion/show-reservations.html", consulta = resultados)
 
 #UPDATE reservacion
-@view_reservations.route("/actualizar/<int:idresv>", methods=['GET', 'POST'])
+
+
+@view_reservations.route("/consultar/<int:idresv>", methods=['GET', 'POST'])
 @login_required
 def actualiza_reservacion(idresv):
     hostales_disponibles = obtener_hostales()
@@ -90,14 +95,14 @@ def actualiza_reservacion(idresv):
         try:
             resv_old.num_personas = int(request.form['num_personas'])
         except:
-            error = 'Datos incorrectos'
+            error = Markup("<div id='modal'><img class='P9' src='../../static/f10.png' alt='Fondo-blanc'><div id='cuadro'>‎ <br>‎ <br>Por favor rellena correctamente todos los datos. <a class='close' href='#overlay'>&times;</a></div></div>")
             flash(error)
-            return redirect(url_for('reservacion.actualiza_reservacion', idresv=idresv))
+            return redirect(url_for('reservacion.actualiza_reservacion', idresv=idresv)+"#modal")
         resv_old.idhostal = request.form['hotel']
         resv_old.inicio = request.form['fecha_inicio']
         resv_old.fin = request.form['fecha_salida']
         if resv_old.idhostal == '' or resv_old.inicio == '' or resv_old.fin == '':
-            error = 'Por favor llena todos los campos'
+            error = Markup("<div id='modal'><img class='P9' src='../../static/f10.png' alt='Fondo-blanc'><div id='cuadro'>‎ <br>‎ <br>Por favor rellena correctamente todos los datos. <a class='close' href='#overlay'>&times;</a></div></div>")
         else:
             hostal = obtener_hostal(resv_old.idhostal).nombre
             resv_old.hostal = hostal
@@ -108,8 +113,8 @@ def actualiza_reservacion(idresv):
             return redirect(url_for('login.success'))
         else:
             flash(error)
-            return redirect(url_for('reservacion.actualiza_reservacion', idresv=idresv))
-    return render_template("reservacion/update_reservation.html", hostales = hostales_disponibles)
+            return redirect(url_for('reservacion.actualiza_reservacion', idresv=idresv)+"#modal")
+    return render_template("reservacion/show-reservations.html", hostales = hostales_disponibles)
 
 @view_reservations.route("/delete/<int:idresv>", methods=['GET', 'POST'])
 @login_required
