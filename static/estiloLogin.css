@@ -45,6 +45,7 @@
   border-radius: 10px;
   top: 485px;
   left: 840px;
+  font-family: 'Noto Sans KR', sans-serif;
   color: #DBD3D8;
   background-color: #223843;
   border: none;
@@ -271,7 +272,7 @@
 .ArtCinco{
   position: absolute;
   bottom: 235px;
-  right: 110px;
+  left: 1170px;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
   font-size: 15px;

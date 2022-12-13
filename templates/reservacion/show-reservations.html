@@ -1,149 +1,214 @@
 <!doctype html>
-<title>Reservations</title>
+<title>Reservaciones</title>
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="{{ url_for('static', filename='estiloReservaciones.css') }}"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='estiloReservaciones.css') }}"/>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
 </head>
 <body>
-  
-  {% for reservacion in consulta %}
-      <div>
-        <h1>Reservaciones registradas:</h1>
-          <h5>{{ reservacion.hostal }}</h5>
-          <p> Numero de personas:{{ reservacion.num_personas }}</p>
-          <p> Fecha inicio:{{ reservacion.inicio }}</p>
-          <p> Fecha salida:{{ reservacion.final}}</p>
-      </div>
-      <div>
-          
-          <a href="{{ url_for('reservacion.elimina_reservacion', idresv=reservacion.idreservacion)}}">Eliminar</a>
-          
-            
-            <a href="{{ url_for('reservacion.actualiza_reservacion', idresv=reservacion.idreservacion)}}#overlay ">
-              Editar
-            </a>
-          
-            <a href="{{ url_for('reservacion.crear_reservacion') }}#overlay2">Crear reservacion</a>
+    <section class="content">
+        <header>
+            <div id="P">
+                <a href="http://127.0.0.1:5000/" >
+                <img class="p1"  src="{{ url_for('static', filename='Logo.png') }}" alt="Logo" height="180" width="280" />
+                </a>
+              </div>
+      
+              <div id="Gen">
+                <img class="p2" src="{{ url_for('static', filename='f1.png') }}" alt="Naranja" />
+                <img class="P3" src="{{ url_for('static', filename='f2.png') }}" alt="Blanc"/>  
+                <img class="P4" src="{{ url_for('static', filename='f3.png') }}" alt="Barra inferior"/> 
+                
+              </div>
 
-      </div>
-      {% endfor %}
+              <div class="Err1">
+                <ul >
+                  <li><a class="h1" href="http://127.0.0.1:5000/" style="text-decoration: none; color: #DBD3D8">CheckRewards</a> </li>
+          
+                    <li><a class="h2" href="#" style="text-decoration: none ; color: #DBD3D8"> Hostales </a>
+                      <ul>
+                        <li><a class="Int1" style="text-decoration:none ; color: #DBD3D8 " href="">Instalaciones </a></li>
+                        <li><a class="Int2" style="text-decoration: none ; color: #DBD3D8" href="">Inscripciones</a></li>
+                      </ul>
+                    </li>
+                      <li><a class="h3" href="" style="text-decoration: none; color: #DBD3D8 " >Servicios</a>
+                      <ul>
+                        <li><a class="Int3" style=" text-decoration: none; color : #DBD3D8" >Servicios Extracurriculares</a></li>
+                      <li><a class="Int4" style=" text-decoration : none ; color : #DBD3D8" >Servicios Adicionales</a></li>
+                      </ul>
+                    </li>
+                        <li><a class="h4" href="" style="text-decoration: none ; color: #DBD3D8"> Contacto</a> </li>
+                      
+                </ul>
+              </div>
 
+        </header>
+
+        <h1 class="titulo1">Tus reservaciones</h1>
+        <div class="cuerpo">
+            {% for reservacion in consulta %}
+            <div class="card1">
+            <h5 id="tituloRes">{{ reservacion.hostal }}</h5>
+            <img class="sambuca" src="{{ url_for('static', filename='sambuca.jpg') }}" alt="sambuca"> 
+            <div class="textoCard">
+                <p> Numero de personas:{{ reservacion.num_personas }}</p>
+                <p> Fecha inicio:{{ reservacion.inicio }}</p>
+                <p> Fecha salida:{{ reservacion.final}}</p>
+                <a href="{{ url_for('reservacion.elimina_reservacion', idresv=reservacion.idreservacion)}}">Eliminar</a>
+                <a href="{{ url_for('reservacion.actualiza_reservacion', idresv=reservacion.idreservacion)}}#overlay ">Editar</a>
+            </div>    
+        </div>
+            {% endfor %}
+
+        </div>
+        
+        <a class="botonCrear" href="{{ url_for('reservacion.crear_reservacion') }}#overlay2">Crear reservacion</a>
       
   
-  <div id="overlay" >
-  <h2>Ingresa los siguientes campos para modificar la reservacion</h2>
-  <form action="" method="POST">
-      <p>Hotel</p>
-          {% for hostal in hostales %}
-              <input type="radio" id="{{ hostal.nombre}}" name="hoteles" value="{{ hostal.idhostal}}">
-              <label for="{{ hostal.nombre}}"> {{hostal.nombre}}</label><br>
+        <div id="overlay" >
+            <h2>Ingresa los siguientes campos para modificar la reservacion</h2>
+            <form action="" method="POST">
+                <p>Hotel</p>
+                    {% for hostal in hostales %}
+                        <input type="radio" id="{{ hostal.nombre}}" name="hoteles" value="{{ hostal.idhostal}}">
+                        <label for="{{ hostal.nombre}}"> {{hostal.nombre}}</label><br>
 
-          {% endfor %}
+                    {% endfor %}
 
-      <br>
-      <label for="num_personas">Numero de personas</label>
-      <input type="text" name="num_personas" id="num_personas" value="{{ request.form.num_personas }}">
-      <br>
-      <label for="inicio">Fecha de llegada</label>
-      <input type="date" name="fecha_inicio" id="fecha_inicio" value="{{ request.form.fecha_inicio }}">
-      <br>
+                <br>
+                <label for="num_personas">Numero de personas</label>
+                <input type="text" name="num_personas" id="num_personas" value="{{ request.form.num_personas }}">
+                <br>
+                <label for="inicio">Fecha de llegada</label>
+                <input type="date" name="fecha_inicio" id="fecha_inicio" value="{{ request.form.fecha_inicio }}">
+                <br>
 
-      <label for="fin">Fecha de salida</label>
-      <input type="date" name="fecha_salida" id="fecha_salida" value="{{request.form.fecha_salida}}">
-      <br>
+                <label for="fin">Fecha de salida</label>
+                <input type="date" name="fecha_salida" id="fecha_salida" value="{{request.form.fecha_salida}}">
+                <br>
 
-      <!--
-      <input class="btn btn-default" type="submit" name="crear" id="crear" value="Crear">
+                <!--
+                <input class="btn btn-default" type="submit" name="crear" id="crear" value="Crear">
 
-      <br>
-      /-->
+                <br>
+                /-->
 
-      <!-- JAVASCRITP una vez más nos encontramos viejo enemigo/-->
-      <button type="submit" onclick="displayRadioValue()">
-          Crear
-      </button>
+                <!-- JAVASCRITP una vez más nos encontramos viejo enemigo/-->
+                <button type="submit" onclick="displayRadioValue()">
+                    Crear
+                </button>
 
-      <br>
+                <br>
 
-      <input type="hidden" id="result" name="hotel" value="">
+                <input type="hidden" id="result" name="hotel" value="">
 
-      <script>
-          function displayRadioValue() {
-              document.getElementById("result").innerHTML = "";
-              var ele = document.getElementsByName('hoteles');
+                <script>
+                    function displayRadioValue() {
+                        document.getElementById("result").innerHTML = "";
+                        var ele = document.getElementsByName('hoteles');
 
-              for(i = 0; i < ele.length; i++) {
+                        for(i = 0; i < ele.length; i++) {
 
-                  if(ele[i].type="radio") {
+                            if(ele[i].type="radio") {
 
-                      if(ele[i].checked)
-                          document.getElementById("result").value = ele[i].value;
-                  }
-              }
-          }
-      </script>
-  </form>
-  </div>
+                                if(ele[i].checked)
+                                    document.getElementById("result").value = ele[i].value;
+                            }
+                        }
+                    }
+                </script>
+            </form>
+        </div>
 
-  <div id="overlay2">
-    <h2>Ingresa los siguientes campos para poder crear una reservacion</h2>
-  <form action="" method="POST">
-    <p>Hotel</p>
+        <div id="overlay2">
+            <h2>Ingresa los siguientes campos para poder crear una reservacion</h2>
+            <form action="" method="POST">
+                <p>Hotel</p>
+                
+                    {% for hostal in hostales %}
+                    
+                        <input type="radio" id="{{ hostal.nombre}}" name="hotel" id="hotel" value="{{ hostal.idhostal}}">
+                        <label for="{{ hostal.nombre}}"> {{hostal.nombre}}</label><br>
+
+                    {% endfor %}
+
+                <br>
+                <label for="num_personas">Numero de personas</label>
+                <input type="text" name="num_personas" id="num_personas" value="{{ request.form.num_personas }}">
+                <br>
+                <label for="inicio">Fecha de llegada</label>
+                <input type="date" name="fecha_inicio" id="fecha_inicio" value="{{ request.form.fecha_inicio }}">
+                <br>
+
+                <label for="fin">Fecha de salida</label>
+                <input type="date" name="fecha_salida" id="fecha_salida" value="{{request.form.fecha_salida}}">
+                <br>
+
+                <!--
+                <input class="btn btn-default" type="submit" name="crear" id="crear" value="Crear">
+
+                <br>
+                /-->
+
+                <!-- JAVASCRITP una vez más nos encontramos viejo enemigo/-->
+                <button type="submit" onclick="displayRadioValue()">
+                    Crear
+                </button>
+
+                <br>
+
+                <input type="hidden" id="result" name="hotel" value="">
+
+                <script>
+                    function displayRadioValue() {
+                        document.getElementById("result").innerHTML = "";
+                        var ele = document.getElementsByName('hoteles');
+
+                        for(i = 0; i < ele.length; i++) {
+
+                            if(ele[i].type="radio") {
+
+                                if(ele[i].checked)
+                                    document.getElementById("result").value = ele[i].value;
+                            }
+                        }
+                    }
+                </script>
+            </form>
+        </div>
+
+        <div class="ArtTres">
+            <a>* En algunos casos nos quedaremos con todo tu dinero porque si. Obtén más información en el sitio web.</a>
+            <a>© 2022 Check.in es una empresa de Tlacuache Group. Todos los derechos reservados</a>
+            <a>Check.in y el logotipo de Check.in son marcas comerciales o marcas registradas de Maldonado.com, LP en Yucatan y/u otras entidades. Las demás marcas registradas son propiedad de sus respectivos dueños.</a>
+            <a>Ayudenme banda no he podido dormir bien y ya empiezo a alucinar con monas chinas</a>
+        </div>
+
+        <form action="#">
+            <select name="idioma" id="idioma" class="idioma">
+              <option value="español">Esp</option>
+              <option value="inglés">Eng</option>
+              <option value="日本">日本</option>
+              <option value="UwU">UwU</option>
+            </select>
+        </form>
+
+        <div>
+            <a href="http://127.0.0.1:5000/login/" >
+                <img class="fon"  src="{{ url_for('static', filename='fon.png') }}" alt="fon"  />
+            </a>
+        </div>
     
-        {% for hostal in hostales %}
-        
-            <input type="radio" id="{{ hostal.nombre}}" name="hotel" id="hotel" value="{{ hostal.idhostal}}">
-            <label for="{{ hostal.nombre}}"> {{hostal.nombre}}</label><br>
+        <button type="button" class="botonTres">Favoritos ♥</button>
 
+        <a href="{{ url_for('logout.logout') }}">
+            <button type="button" class="botonDos">Cerrar sesión</button>
+        </a>
+
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
         {% endfor %}
-
-    <br>
-    <label for="num_personas">Numero de personas</label>
-    <input type="text" name="num_personas" id="num_personas" value="{{ request.form.num_personas }}">
-    <br>
-    <label for="inicio">Fecha de llegada</label>
-    <input type="date" name="fecha_inicio" id="fecha_inicio" value="{{ request.form.fecha_inicio }}">
-    <br>
-
-    <label for="fin">Fecha de salida</label>
-    <input type="date" name="fecha_salida" id="fecha_salida" value="{{request.form.fecha_salida}}">
-    <br>
-
-    <!--
-    <input class="btn btn-default" type="submit" name="crear" id="crear" value="Crear">
-
-    <br>
-    /-->
-
-    <!-- JAVASCRITP una vez más nos encontramos viejo enemigo/-->
-    <button type="submit" onclick="displayRadioValue()">
-        Crear
-    </button>
-
-    <br>
-
-    <input type="hidden" id="result" name="hotel" value="">
-
-    <script>
-        function displayRadioValue() {
-            document.getElementById("result").innerHTML = "";
-            var ele = document.getElementsByName('hoteles');
-
-            for(i = 0; i < ele.length; i++) {
-
-                if(ele[i].type="radio") {
-
-                    if(ele[i].checked)
-                        document.getElementById("result").value = ele[i].value;
-                }
-            }
-        }
-    </script>
-</form>
-</div>
-
-  {% for message in get_flashed_messages() %}
-    <div class="flash">{{ message }}</div>
-  {% endfor %}
-
+    </section>
 </body>

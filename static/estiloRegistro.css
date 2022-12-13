@@ -10,7 +10,7 @@
 #Principal{
   position: absolute;
   top: 170px;
-  left: 755px;
+  left: 930px;
   font-family: 'Noto Sans KR', sans-serif;
   color: #DBD3D8;
   font-size: 24px;
@@ -73,8 +73,8 @@
 #Principal7{
   position: absolute;
   border-radius: 10px;
-  top: 390px;
-  left: 745px;
+  top: 340px;
+  left: 1100px;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 24px;
   background-color: #DBD3D8;
@@ -84,7 +84,7 @@
   position: absolute;
   border-radius: 10px;
   top: 240px;
-  right: 100px;
+  left: 1100px;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 24px;
   background-color: #DBD3D8;
@@ -94,7 +94,7 @@
   position: absolute;
   border-radius: 10px;
   top: 290px;
-  right: 100px;
+  left: 1100px;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 24px;
   background-color: #DBD3D8;
@@ -113,8 +113,8 @@
 .botonRegistro{
   position: absolute;
   border: none;
-  top: 402px;
-  right: 200px;
+  top: 412px;
+  left: 1025px;
   padding: 8px 35px;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 16px;
@@ -122,6 +122,7 @@
   font-weight: bold;
   color: #DBD3D8;
   background-color: #223843;
+  border-radius: 10px;
 }
 
 .container{
@@ -206,8 +207,8 @@
   position: relative;
   border: none;
   padding: 10px 45px;
-  top: 280px;
-  left: 880px;
+  top: 310px;
+  left: 920px;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 16px;
   cursor: pointer;
@@ -220,8 +221,8 @@
   position: relative;
   border-color: #4285f4;
   padding: 8px 20px;
-  top: 280px;
-  left: 950px;
+  top: 310px;
+  left: 982px;
   color: #4285f4;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 16px;
@@ -246,8 +247,8 @@
   position: relative;
   border-color: black;
   padding: 7px 25px;
-  top: 340px;
-  left: 714px;
+  top: 370px;
+  left: 745px;
   color: black;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 16px;
@@ -324,8 +325,8 @@
 
 .ArtCinco{
   position: absolute;
-  bottom: 235px;
-  right: 665px;
+  bottom: 230px;
+  left: 760px;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
   font-size: 15px;
@@ -335,7 +336,7 @@
 .ArtSeis{
   position: absolute;
   bottom: 165px;
-  right: 480px;
+  left: 800px;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
   font-size: 15px;
